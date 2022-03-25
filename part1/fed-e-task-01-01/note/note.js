@@ -22,5 +22,8 @@ function curry(fn) {
 // common js module.exports
 
 // npm i
+// 默认 -S -P
+// -D --save-dev
+// -g --global
 
 // js消息队列、事件循环机制

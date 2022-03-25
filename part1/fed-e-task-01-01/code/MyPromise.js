@@ -174,3 +174,19 @@ class MyPromise {
 }
 
 module.exports = MyPromise
+
+// test
+let myPromise = new MyPromise((resolve, reject) => {
+    setTimeout(() => {
+        resolve('success')
+    }, 1000 * 2)
+})
+myPromise.then(value => {
+    console.log(value)
+
+}).catch(e => {
+    console.log('catch error')
+    console.log(e)
+}).finally(() => {
+    console.log('finally invoked')
+})
