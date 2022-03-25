@@ -12,4 +12,4 @@
     }, 10)
   }, 10)
 */
-
+Promise.resolve('hello').then(value => value + ' lagou ').then(value => console.log(value + 'I ♥ U'))

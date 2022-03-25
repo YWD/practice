@@ -40,35 +40,40 @@ const cars = [{
 ]
 
 /*
-  练习1:  
+  练习1:
     let last_car = fp.last(cars)   获取最后一条数据
     fp.prop('in_stock', last_car)  获取最后一条数据的 in_stock 属性值
 
-  实现 isLastInStock 函数, 要求使用 fp.flowRight() 
+  实现 isLastInStock 函数, 要求使用 fp.flowRight()
   把 fp.last(), fp.prop() 组合而成
 */
 
 // 1.实现 isLastInStock 函数
+let findProp = fp.curry(fp.prop)
+let findInStockProp = findProp('in_stock')
+let isLastInStock = fp.flowRight(findInStockProp, fp.last)
 
 // 2.打印测试
 console.log(isLastInStock(cars))  // 最终返回 true
 
 /*
-  练习2: 
+  练习2:
   实现 firstName 函数, 要求使用 fp.flowRight()
   把 fp.prop(), fp.first() 组合而成
 */
 // 1.实现 firstName 函数
+let findNameProp = findProp('name')
+let firstName = fp.flowRight(findNameProp, fp.first)
 
 // 2.打印测试
-console.log(firstName(cars))  // 最终返回 Ferrari FF (第一个 car 的 name) 
+console.log(firstName(cars))  // 最终返回 Ferrari FF (第一个 car 的 name)
 
 
 /*
-  练习3: 
+  练习3:
   实现函数 averageDollarValue, 要求使用 fp.flowRight()
   把 fp.map(), _average() 组合而成
-  
+
   参考代码:
     let averageDollarValue = function (cars) {
         let dollar_values = fp.map(function (car) {
@@ -82,12 +87,13 @@ let _average = function (xs) {
 } // <- 无须改动
 
 // 1.实现 averageDollarValue 函数
+let averageDollarValue = fp.flowRight(_average, fp.map(car => fp.prop('dollar_value', car)))
 
 // 2.打印测试
-console.log(averageDollarValue(cars))  // 最终返回 
+console.log(averageDollarValue(cars))  // 最终返回
 
 /*
-  练习4: 
+  练习4:
   实现 sanitizeNames() 函数，要求使用 fp.flowRight()
   最终把 cars 当作参数, 应该得到下面结果
     [
@@ -107,11 +113,24 @@ console.log(averageDollarValue(cars))  // 最终返回
 let _underscore = fp.replace(/\W+/g, '_') // <--无须改动
 
 // 1.实现 sanitizeNames 函数
-
+let sanitizeNames = fp.flowRight(
+    fp.map(value => _underscore(value)),
+    fp.map(value => value.toLowerCase()),
+    fp.map(car => fp.prop('name', car))
+)
+let sanitizeNamesLeft = fp.flow(
+    fp.map(car => fp.prop('name', car)),
+    fp.map(value => value.toLowerCase()),
+    fp.map(value => _underscore(value))
+)
+let sanitizeNames2 = fp.flow(
+    fp.map(car => _underscore(fp.prop('name', car).toLowerCase()))
+)
 
 // 2.打印测试
 console.log(sanitizeNames(cars))
-
+console.log(sanitizeNamesLeft(cars))
+console.log(sanitizeNames2(cars))
 /*
     [
       'ferrari_ff',
