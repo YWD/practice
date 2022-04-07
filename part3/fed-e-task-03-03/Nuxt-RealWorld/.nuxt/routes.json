@@ -1,0 +1,43 @@
+[
+  {
+    "path": "/",
+    "component": "/Users/ywd/WebProject/practice/part3/fed-e-task-03-03/Nuxt-RealWorld/pages/layout",
+    "children": [
+      {
+        "path": "",
+        "name": "home",
+        "component": "/Users/ywd/WebProject/practice/part3/fed-e-task-03-03/Nuxt-RealWorld/pages/home"
+      },
+      {
+        "path": "/login",
+        "name": "login",
+        "component": "/Users/ywd/WebProject/practice/part3/fed-e-task-03-03/Nuxt-RealWorld/pages/login"
+      },
+      {
+        "path": "/register",
+        "name": "register",
+        "component": "/Users/ywd/WebProject/practice/part3/fed-e-task-03-03/Nuxt-RealWorld/pages/login"
+      },
+      {
+        "path": "/profile/:username",
+        "name": "profile",
+        "component": "/Users/ywd/WebProject/practice/part3/fed-e-task-03-03/Nuxt-RealWorld/pages/profile"
+      },
+      {
+        "path": "/settings",
+        "name": "settings",
+        "component": "/Users/ywd/WebProject/practice/part3/fed-e-task-03-03/Nuxt-RealWorld/pages/settings"
+      },
+      {
+        "path": "/editor",
+        "name": "editor",
+        "component": "/Users/ywd/WebProject/practice/part3/fed-e-task-03-03/Nuxt-RealWorld/pages/editor"
+      },
+      {
+        "path": "/article/:slug",
+        "name": "article",
+        "component": "/Users/ywd/WebProject/practice/part3/fed-e-task-03-03/Nuxt-RealWorld/pages/article"
+      }
+    ]
+  }
+]

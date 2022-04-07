@@ -1,0 +1,25 @@
+{
+  "name": "nuxt-realworld",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "export SET NODE_OPTIONS=--openssl-legacy-provider && nuxt",
+    "build": "export SET NODE_OPTIONS=--openssl-legacy-provider && nuxt build",
+    "start": "nuxt start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "cookieparser": "^0.1.0",
+    "dayjs": "^1.11.0",
+    "js-cookie": "^3.0.1",
+    "nuxt": "^2.15.8"
+  },
+  "devDependencies": {
+    "markdown-it": "^12.3.2"
+  }
+}
