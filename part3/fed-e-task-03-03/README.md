@@ -1,5 +1,8 @@
 # 编程题
 
+#### 项目服务器地址：117.50.0.231
+实现功能与课程视频一致
+
 #### 1.使用 NuxtJS 实现 RealWorld 全部功能
 
 - **RealWorld 官网**   https://realworld-docs.netlify.app/
