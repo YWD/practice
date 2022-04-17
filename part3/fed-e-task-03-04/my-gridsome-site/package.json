@@ -1,0 +1,13 @@
+{
+  "name": "my-gridsome-site",
+  "private": true,
+  "scripts": {
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider && gridsome build",
+    "develop": "export NODE_OPTIONS=--openssl-legacy-provider && gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "axios": "^0.26.1",
+    "gridsome": "^0.7.0"
+  }
+}

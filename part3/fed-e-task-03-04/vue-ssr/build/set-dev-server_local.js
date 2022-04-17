@@ -65,7 +65,7 @@ module.exports = function (app, templatePath, cb) {
     app.use(clientDevMiddleware)
     const hotMiddleware = require('webpack-hot-middleware')
     app.use(hotMiddleware(clientCompiler, {
-        log: true
+        log: false
     }))
     console.log('onReady return')
     return onReady
