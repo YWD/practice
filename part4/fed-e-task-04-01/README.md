@@ -1,27 +1,17 @@
-## 简答
+# fed-04-01
 
+1.请简述React16版本中初始渲染的流程
 
+答：进入初始渲染阶段，首先判断是否存在过期任务，由于是初始渲染，肯定不存在过期任务，于是过期时间变成sync.进入下一步判断，判断fiberRoot对象是否跟workingProgressRoot相等以及过期时间是否跟渲染过期时间相等,初始渲染workingProgressRoot不存在并且过期时间被设置成sync，而渲染过期时间目前是0,因此进入构建workingProgressFiber树以及rootFiber，老师，不知道该怎么写了。
 
-#### 1. 请简述 React 16 版本中初始渲染的流程
+2.为什么React16版本中render阶段放弃了使用递归
 
-　
+答：使用递归的时候，由于递归是无法打断的，一旦开始执行，程序就会一直占用线程，又因为js是单线程语言，导致在递归时，如果发生用户交互行为，页面将无法相应用户行为，造成用户体验上的卡顿。在React16中，使用循环代替递归，当页面发生用户交互行为，循环可以被打断，优先执行用户交互行为，大大提升了用户体验。之后被打断的循环可以再次执行已完成程序的运行。
 
-　
+3.请简述React16版本中commit阶段的三个子阶段分别作了什么事情
 
-#### 2. 为什么 React 16 版本中 render 阶段放弃了使用递归
+答：阶段1：处理类组件的getSnapshotBeforeUpdate声明周期函数；阶段2：根据effectTag进行dom操作，将workingProgress Fiber树变成current Fiber树;阶段3:调用生命周期函数以及钩子函数
 
-　
+4.请简述workingProgress Fiber树存在的意义是什么
 
-　
-
-#### 3. 请简述 React 16 版本中 commit 阶段的三个子阶段分别做了什么事情
-
-　
-
-　
-
-#### 4. 请简述 workInProgress Fiber 树存在的意义是什么
-
-　
-
-　
+答：在react中最多存在两棵树，一棵是current树，是当前显示在页面的。另一个是workingProgress Fiber树，这棵树是在内存中构建的，是发生更新后创建的fiber树。一旦更新完成，react会直接将current树替换成workingProgress Fiber树，以便快速完成DOM的更新.
