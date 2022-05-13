@@ -2,7 +2,7 @@
 
 1.请简述React16版本中初始渲染的流程
 
-答：进入初始渲染阶段，首先判断是否存在过期任务，由于是初始渲染，肯定不存在过期任务，于是过期时间变成sync.进入下一步判断，判断fiberRoot对象是否跟workingProgressRoot相等以及过期时间是否跟渲染过期时间相等,初始渲染workingProgressRoot不存在并且过期时间被设置成sync，而渲染过期时间目前是0,因此进入构建workingProgressFiber树以及rootFiber，老师，不知道该怎么写了。
+答：进入初始渲染阶段，首先判断是否存在过期任务，由于是初始渲染，肯定不存在过期任务，于是过期时间变成sync.进入下一步判断，判断fiberRoot对象是否跟workingProgressRoot相等以及过期时间是否跟渲染过期时间相等,初始渲染workingProgressRoot不存在并且过期时间被设置成sync，而渲染过期时间目前是0,因此进入构建workingProgressFiber树以及rootFiber。
 
 2.为什么React16版本中render阶段放弃了使用递归
 
